@@ -207,6 +207,7 @@ func NewLiveRoom(ctx context.Context, input, server string, offset int) *LiveRoo
 		"-stream_loop", "-1", // 无限循环
 		"-ss", fmt.Sprintf("%d", offset), // 时间偏移, 当意外重启时可以快速恢复
 		"-i", input,
+		"-c", "copy", // 添加此选项能大幅减少cpu压力
 		// "-vcodec", "libx264", "-acodec", "aac", //转码, 不是必须的
 		"-f", "flv", server,
 	)
