@@ -7,7 +7,7 @@
 1. 启动服务
 
 ```sh
-docker run -d --restart always --name video2live -v $PWD/video2live/:/app/pb_data/ -p 8090:8090 shynome/video2live:v0.0.2
+docker run -d --restart always --name video2live -v $PWD/video2live/:/app/pb_data/ -p 8090:8090 shynome/video2live:v0.0.3
 ```
 
 2. 访问 `http://127.0.0.1:8090/`, 设置好帐号密码, 新建 `live_rooms` 即可开始推流
