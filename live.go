@@ -78,12 +78,12 @@ func (rooms *LiveRooms) HandleChange(ctx context.Context, record *models.Record,
 	if !push {
 		return rooms.Stop(record)
 	}
+	if _, ok := filesMap["video"]; !ok { // 没有新视频时不要重启推流进程
+		return nil
+	}
 	room := rooms.GetRoom(record.Id)
 	if room != nil {
 		try.To(rooms.Stop(record))
-	}
-	if _, ok := filesMap["video"]; ok { // 有新视频时将偏移量设为0
-		record.Set("offset", 0)
 	}
 	return rooms.Start(record)
 }
