@@ -1,0 +1,12 @@
+[Unit]
+Description=video2live
+After=network.target
+
+[Service]
+ExecStart=video2live serve --http=127.0.0.1:8090
+WorkingDirectory=/opt/video2live/
+Restart=always
+MemoryMax=300M
+
+[Install]
+WantedBy=default.target
